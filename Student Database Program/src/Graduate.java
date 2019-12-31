@@ -7,6 +7,10 @@ public class Graduate extends Student{
 		major = m;
 	}
 	
+	public char getType() {
+		return 'g';
+	}
+	
 	public void setMajor(String m) {
 		major = m;
 	}
@@ -18,5 +22,11 @@ public class Graduate extends Student{
 	public String print() {
 		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "Major: " + major;
 		return output;
+	}
+	
+	public boolean equals(String m) {
+		if (major.equalsIgnoreCase(m))
+			return true;
+		else return false;
 	}
 }

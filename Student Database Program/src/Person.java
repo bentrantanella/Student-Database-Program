@@ -6,6 +6,10 @@ public class Person {
 		name = nm;
 	}
 	
+	public char getType() {
+		return 'p';
+	}
+	
 	public void setName(String nm) {
 		name = nm;
 	}

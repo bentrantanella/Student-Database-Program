@@ -8,6 +8,10 @@ public class Student extends Person{
 		studentID = ID;
 	}
 	
+	public char getType() {
+		return 's';
+	}
+	
 	public void setID(int ID) {
 		studentID = ID;
 	}
