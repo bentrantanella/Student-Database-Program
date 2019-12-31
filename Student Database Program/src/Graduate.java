@@ -14,4 +14,9 @@ public class Graduate extends Student{
 	public String getMajor() {
 		return major;
 	}
+	
+	public String print() {
+		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "Major: " + major;
+		return output;
+	}
 }

@@ -16,12 +16,13 @@ public class DatabaseGUI extends GBFrame {
 	JButton printUndergradsButton = addButton("Print all undergraduates",4,1,1,1);
 	JButton printGradsButton = addButton("Print all graduate students",5,1,1,1);
 	
-	Person[] people = new Person[10];
-	int counter = 0;
+	public Person[] people = new Person[10];
+	public int counter = 0;
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == newPersonButton) {
 			InputField newperson = new InputField(this, people, counter);
+			newperson.setVisible(true);
 		}
 		
 		if (buttonObj == printAllButton) {

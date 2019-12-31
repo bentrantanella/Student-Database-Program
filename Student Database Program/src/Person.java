@@ -13,4 +13,9 @@ public class Person {
 	public String getName() {
 		return name;
 	}
+	
+	public String print() {
+		String output = "Name: " + name;
+		return output;
+	}
 }

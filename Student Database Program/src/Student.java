@@ -13,6 +13,11 @@ public class Student extends Person{
 	}
 	
 	public int getID() {
-		return ID;
+		return studentID;
+	}
+	
+	public String print() {
+		String output = "Name: " + name + "\n" + "ID Number: " + studentID;
+		return output;
 	}
 }
