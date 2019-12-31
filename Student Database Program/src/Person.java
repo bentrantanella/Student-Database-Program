@@ -6,5 +6,11 @@ public class Person {
 		name = nm;
 	}
 	
+	public void setName(String nm) {
+		name = nm;
+	}
 	
+	public String getName() {
+		return name;
+	}
 }

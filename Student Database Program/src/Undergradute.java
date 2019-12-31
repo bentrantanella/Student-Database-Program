@@ -1,11 +1,19 @@
 
 public class Undergraduate extends Student{
 	
-	char gradeLevel = 'f';
+	String gradeLevel = "";
 	
-	public Undergraduate(String nm, int ID, char grade) {
+	public Undergraduate(String nm, int ID, String grade) {
 		super(nm, ID);
 		gradeLevel = grade;
+	}
+	
+	public void setGradeLevel(String grade) {
+		gradeLevel = grade;
+	}
+	
+	public String getGradeLevel() {
+		return gradeLevel;
 	}
 	
 }
