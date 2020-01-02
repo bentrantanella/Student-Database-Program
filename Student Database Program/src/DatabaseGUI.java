@@ -10,14 +10,14 @@ public class DatabaseGUI extends GBFrame {
 		frm.setVisible(true);
 	}
 	
-	JButton newPersonButton = addButton("New person",1,1,1,1);
-	JButton printAllButton = addButton("Print all people",2,1,1,1);
-	JButton printStudentsButton = addButton("Print all students",3,1,1,1);
-	JButton printUndergradsButton = addButton("Print all undergraduates",4,1,1,1);
-	JButton printGradsButton = addButton("Print all graduate students",5,1,1,1);
+	JButton newPersonButton = addButton("New Person",1,1,1,1);
+	JButton printPeopleButton = addButton("Print All People",2,1,1,1);
+	JButton printStudentsButton = addButton("Print All Students",3,1,1,1);
+	JButton printUndergradsButton = addButton("Print All Undergraduates",4,1,1,1);
+	JButton printGradsButton = addButton("Print All Graduates",5,1,1,1);
 	
-	public Person[] people = new Person[10];
-	public int counter = 0;
+	Person[] people = new Person[10];
+	int counter = 0;
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == newPersonButton) {
@@ -25,20 +25,28 @@ public class DatabaseGUI extends GBFrame {
 			newperson.setVisible(true);
 		}
 		
-		if (buttonObj == printAllButton) {
+		if (buttonObj == printPeopleButton) {
+			Print p = new Print(people);
 			
+			messageBox(p.printPersons());
 		}
 		
 		if (buttonObj == printStudentsButton) {
+			Print p = new Print(people);
 			
+			messageBox(p.printStudents()); 
 		}
 		
 		if(buttonObj == printUndergradsButton) {
+			Print p = new Print(people);
 			
+			messageBox(p.printUndergrads());
 		}
 		
 		if(buttonObj == printGradsButton) {
+			Print p = new Print(people);
 			
+			messageBox(p.printGrads());
 		}
 	}
 }

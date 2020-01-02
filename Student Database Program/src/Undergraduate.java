@@ -8,10 +8,6 @@ public class Undergraduate extends Student{
 		gradeLevel = grade;
 	}
 	
-	public char getType() {
-		return 'u';
-	}
-	
 	public void setGradeLevel(String grade) {
 		gradeLevel = grade;
 	}
@@ -21,7 +17,7 @@ public class Undergraduate extends Student{
 	}
 	
 	public String print() {
-		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "Grade Level: " + gradeLevel;
+		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "Grade Level: " + gradeLevel + "\n";
 		return output;
 	}
 	

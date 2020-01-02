@@ -6,10 +6,6 @@ public class Person {
 		name = nm;
 	}
 	
-	public char getType() {
-		return 'p';
-	}
-	
 	public void setName(String nm) {
 		name = nm;
 	}
@@ -19,7 +15,7 @@ public class Person {
 	}
 	
 	public String print() {
-		String output = "Name: " + name;
+		String output = "Name: " + name + "\n";
 		return output;
 	}
 }

@@ -8,10 +8,6 @@ public class Student extends Person{
 		studentID = ID;
 	}
 	
-	public char getType() {
-		return 's';
-	}
-	
 	public void setID(int ID) {
 		studentID = ID;
 	}
@@ -21,7 +17,7 @@ public class Student extends Person{
 	}
 	
 	public String print() {
-		String output = "Name: " + name + "\n" + "ID Number: " + studentID;
+		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n";
 		return output;
 	}
 }

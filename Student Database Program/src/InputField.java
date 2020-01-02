@@ -9,7 +9,7 @@ public class InputField extends GBDialog {
 	public InputField(JFrame parent, Person[] database, int numofpeople) {
 		super (parent);
 		setTitle("New Book");
-		setSize(250,250);
+		setSize(500,500);
 		
 		idLabel.setVisible(false);
 		idField.setVisible(false);
@@ -18,7 +18,6 @@ public class InputField extends GBDialog {
 		majorLabel.setVisible(false);
 		majorField.setVisible(false);
 		
-		addButton.setEnabled(false);
 		
 		gradeCombo.addItem("Freshman");
 		gradeCombo.addItem("Sophomore");
@@ -34,7 +33,7 @@ public class InputField extends GBDialog {
 	JButton studentButton = addButton("Student",1,2,1,1);
 	JButton undergradButton = addButton("Undergraduate",1,3,1,1);
 	JButton gradButton = addButton("Graduate",1,4,1,1);
-	JButton addButton = addButton("Add",1,1,1,1);
+	JButton addButton = addButton("Add",4,1,1,1);
 	
 	JLabel nameLabel = addLabel("Name:",2,1,1,1);
 	JTextField nameField = addTextField("",2,2,1,1);
@@ -53,6 +52,12 @@ public class InputField extends GBDialog {
 		if (buttonObj == personButton) {
 			inputtype = 'p';
 			
+			idLabel.setVisible(false);
+			idField.setVisible(false);
+			gradeLabel.setVisible(false);
+			gradeCombo.setVisible(false);
+			majorLabel.setVisible(false);
+			majorField.setVisible(false);
 			
 		}
 		
@@ -93,20 +98,25 @@ public class InputField extends GBDialog {
 			if (inputtype == 'p') {
 				data[count] = new Person(nameField.getText());
 				count++;
+				messageBox("You have added a person named " + nameField.getText());
 				
 			} else if (inputtype == 's') {
 				data[count] = new Student(nameField.getText(), idField.getNumber());
 				count++;
+				messageBox("You have added a student named " + nameField.getText());
 				
 			} else if (inputtype == 'u') {
 				data[count] = new Undergraduate(nameField.getText(), idField.getNumber(), (String) gradeCombo.getSelectedItem());
 				count++;
+				messageBox("You have added an undergraduate named " + nameField.getText());
 				
 			} else if (inputtype == 'g') {
 				data[count] = new Graduate(nameField.getText(), idField.getNumber(), majorField.getText());
 				count++;
-				
+				messageBox("You have added a graduate named " + nameField.getText());
+
 			}
+			
 		}
 	}
 	
