@@ -15,13 +15,15 @@ public class DatabaseGUI extends GBFrame {
 	JButton printStudentsButton = addButton("Print All Students",3,1,1,1);
 	JButton printUndergradsButton = addButton("Print All Undergraduates",4,1,1,1);
 	JButton printGradsButton = addButton("Print All Graduates",5,1,1,1);
+	JButton compareButton = addButton("Compare undergrad/grad",6,1,1,1);
 	
 	Person[] people = new Person[10];
-	int counter = 0;
+	protected static Integer counter = 0;
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == newPersonButton) {
-			InputField newperson = new InputField(this, people, counter);
+			InputField newperson = new InputField(this, people);
+			System.out.println(counter);
 			newperson.setVisible(true);
 		}
 		
@@ -47,6 +49,10 @@ public class DatabaseGUI extends GBFrame {
 			Print p = new Print(people);
 			
 			messageBox(p.printGrads());
+		}
+		
+		if(buttonObj == compareButton) {
+			
 		}
 	}
 }

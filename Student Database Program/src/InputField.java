@@ -4,9 +4,9 @@ import BreezySwing.*;
 public class InputField extends GBDialog {
 	
 	Person[] data = new Person[10];
-	int count = 0;
 	
-	public InputField(JFrame parent, Person[] database, int numofpeople) {
+	
+	public InputField(JFrame parent, Person[] database) {
 		super (parent);
 		setTitle("New Book");
 		setSize(500,500);
@@ -26,7 +26,7 @@ public class InputField extends GBDialog {
 		
 		
 		this.data = database;
-		this.count = numofpeople;
+	
 	}
 	
 	JButton personButton = addButton("Person",1,1,1,1);
@@ -34,6 +34,7 @@ public class InputField extends GBDialog {
 	JButton undergradButton = addButton("Undergraduate",1,3,1,1);
 	JButton gradButton = addButton("Graduate",1,4,1,1);
 	JButton addButton = addButton("Add",4,1,1,1);
+	
 	
 	JLabel nameLabel = addLabel("Name:",2,1,1,1);
 	JTextField nameField = addTextField("",2,2,1,1);
@@ -59,6 +60,9 @@ public class InputField extends GBDialog {
 			majorLabel.setVisible(false);
 			majorField.setVisible(false);
 			
+			nameField.setText("");
+			
+			
 		}
 		
 		if (buttonObj == studentButton) {
@@ -70,6 +74,9 @@ public class InputField extends GBDialog {
 			majorField.setVisible(false);
 			
 			inputtype = 's';
+			
+			nameField.setText("");
+			idField.setNumber(0);
 		}
 		
 		if (buttonObj == undergradButton) {
@@ -81,6 +88,10 @@ public class InputField extends GBDialog {
 			majorField.setVisible(false);
 			
 			inputtype = 'u';
+			
+			nameField.setText("");
+			idField.setNumber(0);
+			
 		}
 		
 		if (buttonObj == gradButton) {
@@ -92,27 +103,32 @@ public class InputField extends GBDialog {
 			majorField.setVisible(true);
 			
 			inputtype = 'g';
+			
+			nameField.setText("");
+			idField.setNumber(0);
+			majorField.setText("");
 		}
 		
 		if (buttonObj == addButton) {
 			if (inputtype == 'p') {
-				data[count] = new Person(nameField.getText());
-				count++;
+				data[DatabaseGUI.counter] = new Person(nameField.getText());
+				DatabaseGUI.counter++;
+				System.out.println(DatabaseGUI.counter);
 				messageBox("You have added a person named " + nameField.getText());
 				
 			} else if (inputtype == 's') {
-				data[count] = new Student(nameField.getText(), idField.getNumber());
-				count++;
+				data[DatabaseGUI.counter] = new Student(nameField.getText(), idField.getNumber());
+				DatabaseGUI.counter++;
 				messageBox("You have added a student named " + nameField.getText());
 				
 			} else if (inputtype == 'u') {
-				data[count] = new Undergraduate(nameField.getText(), idField.getNumber(), (String) gradeCombo.getSelectedItem());
-				count++;
+				data[DatabaseGUI.counter] = new Undergraduate(nameField.getText(), idField.getNumber(), (String) gradeCombo.getSelectedItem());
+				DatabaseGUI.counter++;
 				messageBox("You have added an undergraduate named " + nameField.getText());
 				
 			} else if (inputtype == 'g') {
-				data[count] = new Graduate(nameField.getText(), idField.getNumber(), majorField.getText());
-				count++;
+				data[DatabaseGUI.counter] = new Graduate(nameField.getText(), idField.getNumber(), majorField.getText());
+				DatabaseGUI.counter++;
 				messageBox("You have added a graduate named " + nameField.getText());
 
 			}
