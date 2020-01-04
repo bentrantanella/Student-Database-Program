@@ -15,7 +15,7 @@ public class Person {
 	}
 	
 	public String print() {
-		String output = "Name: " + name + "\n";
+		String output = "Name: " + name + "\n" + "\n";
 		return output;
 	}
 }

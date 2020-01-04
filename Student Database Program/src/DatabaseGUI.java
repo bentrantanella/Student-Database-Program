@@ -23,7 +23,6 @@ public class DatabaseGUI extends GBFrame {
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == newPersonButton) {
 			InputField newperson = new InputField(this, people);
-			System.out.println(counter);
 			newperson.setVisible(true);
 		}
 		
@@ -52,7 +51,8 @@ public class DatabaseGUI extends GBFrame {
 		}
 		
 		if(buttonObj == compareButton) {
-			
+			Compare c = new Compare(this,people);
+			c.setVisible(true);
 		}
 	}
 }

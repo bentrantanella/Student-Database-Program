@@ -17,7 +17,7 @@ public class Undergraduate extends Student{
 	}
 	
 	public String print() {
-		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "Grade Level: " + gradeLevel + "\n";
+		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "Grade Level: " + gradeLevel + "\n" + "\n";
 		return output;
 	}
 	

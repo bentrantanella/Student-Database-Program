@@ -17,7 +17,7 @@ public class Student extends Person{
 	}
 	
 	public String print() {
-		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n";
+		String output = "Name: " + name + "\n" + "ID Number: " + studentID + "\n" + "\n";
 		return output;
 	}
 }
