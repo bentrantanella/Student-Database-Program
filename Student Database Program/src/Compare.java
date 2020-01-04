@@ -4,6 +4,10 @@ import BreezySwing.*;
 public class Compare extends GBDialog {
 
 	Person[] data = new Person[10];
+	Undergraduate[] undergrads = new Undergraduate[10];
+	Graduate[] grads = new Graduate[10];
+	int gcount = 0;
+	int ucount = 0;
 	
 	public Compare(JFrame parent, Person[] database) {
 		super (parent);
@@ -18,6 +22,17 @@ public class Compare extends GBDialog {
 		gradeCombo.addItem("Senior");
 		
 		majorField.setEditable(false);
+		
+		for(Person p : data) {
+			if (p instanceof Undergraduate) {
+				undergrads[ucount] = (Undergraduate) p;
+				ucount++;
+			} else if (p instanceof Graduate) {
+				grads[gcount] = (Graduate) p;
+				gcount++;
+			}
+		}
+		
 	}
 	
 	JButton undergradButton = addButton("Undergraduate",1,1,1,1);
@@ -53,10 +68,10 @@ public class Compare extends GBDialog {
 				String output = "Undergraduates with the same grade: " + "\n";
 				String grade = (String) gradeCombo.getSelectedItem();
 				
-				for(Person p : data) {
-					if(p instanceof Undergraduate) {
-						if (p.equals(grade)) {
-							output += p.print();
+				for(Undergraduate u : undergrads) {
+					if(u instanceof Undergraduate) {
+						if (u.Equals(grade)) {
+							output += u.print();
 						}
 					}
 				}
@@ -69,10 +84,10 @@ public class Compare extends GBDialog {
 				String output = "Graduates with the same major: " + "\n";
 				String major = majorField.getText();
 				
-				for (Person p : data) {
-					if(p instanceof Graduate) {
-						if (p.equals(major)) {
-							output += p.print();
+				for (Graduate g : grads) {
+					if(g instanceof Graduate) {
+						if (g.Equals(major)) {
+							output += g.print();
 						}
 					}
 				}

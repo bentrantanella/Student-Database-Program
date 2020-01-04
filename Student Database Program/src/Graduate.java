@@ -20,7 +20,7 @@ public class Graduate extends Student{
 		return output;
 	}
 	
-	public boolean equals(String m) {
+	public boolean Equals(String m) {
 		if (major.equalsIgnoreCase(m))
 			return true;
 		else return false;

@@ -21,7 +21,7 @@ public class Undergraduate extends Student{
 		return output;
 	}
 	
-	public boolean equals(String grade) {
+	public boolean Equals(String grade) {
 		if (gradeLevel.equalsIgnoreCase(grade))
 			return true;
 		else return false;
