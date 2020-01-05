@@ -111,29 +111,95 @@ public class InputField extends GBDialog {
 		
 		if (buttonObj == addButton) {
 			if (inputtype == 'p') {
-				data[DatabaseGUI.counter] = new Person(nameField.getText());
+				String name = nameField.getText();
+				
+				if (name.isEmpty() || isWhitespace(name)) {
+					messageBox("Please enter a name");
+					return;
+				}
+				
+				data[DatabaseGUI.counter] = new Person(name);
 				DatabaseGUI.counter++;
 				System.out.println(DatabaseGUI.counter);
 				messageBox("You have added a person named " + nameField.getText());
 				
 			} else if (inputtype == 's') {
-				data[DatabaseGUI.counter] = new Student(nameField.getText(), idField.getNumber());
+				String name = nameField.getText();
+				int id;
+				
+				if (name.isEmpty() || isWhitespace(name)) {
+					messageBox("Please enter a name");
+					return;
+				}
+				
+				try {
+					id = idField.getNumber();
+				} catch (Exception e) {
+					messageBox("Invalid id number");
+					return;
+				}
+				
+				data[DatabaseGUI.counter] = new Student(nameField.getText(), id);
 				DatabaseGUI.counter++;
 				messageBox("You have added a student named " + nameField.getText());
 				
 			} else if (inputtype == 'u') {
-				data[DatabaseGUI.counter] = new Undergraduate(nameField.getText(), idField.getNumber(), (String) gradeCombo.getSelectedItem());
+				String name = nameField.getText();
+				String grade = (String) gradeCombo.getSelectedItem();
+				
+				if (name.isEmpty() || isWhitespace(name)) {
+					messageBox("Please enter a name");
+					return;
+				}
+				
+				int id = 0;
+				try {
+					id = idField.getNumber();
+				} catch (Exception e) {
+					messageBox("Invalid id number");
+					return;
+				}
+				
+				data[DatabaseGUI.counter] = new Undergraduate(name, id, grade);
 				DatabaseGUI.counter++;
 				messageBox("You have added an undergraduate named " + nameField.getText());
 				
 			} else if (inputtype == 'g') {
-				data[DatabaseGUI.counter] = new Graduate(nameField.getText(), idField.getNumber(), majorField.getText());
+				String name = nameField.getText();
+				String major = majorField.getText();
+				int id = 0;
+				if (name.isEmpty() || isWhitespace(name)) {
+					messageBox("Please enter a name");
+					return;
+				}
+				
+				if (major.isEmpty() || isWhitespace(major)) {
+					messageBox("Please enter a major");
+					return;
+				}
+				
+				try {
+					id = idField.getNumber();
+				} catch (Exception e) {
+					messageBox("Invalid id number");
+					return;
+				}
+				
+				data[DatabaseGUI.counter] = new Graduate(name, id, major);
 				DatabaseGUI.counter++;
 				messageBox("You have added a graduate named " + nameField.getText());
 
 			}
 			
 		}
+	}
+	
+	public boolean isWhitespace(String s) {
+		for(int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != ' ')
+				return false;
+		}
+		return true;
 	}
 	
 }

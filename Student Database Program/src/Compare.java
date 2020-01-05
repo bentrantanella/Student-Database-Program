@@ -21,7 +21,7 @@ public class Compare extends GBDialog {
 		gradeCombo.addItem("Junior");
 		gradeCombo.addItem("Senior");
 		
-		majorField.setEditable(false);
+		majorField.setVisible(false);
 		
 		for(Person p : data) {
 			if (p instanceof Undergraduate) {
@@ -49,17 +49,19 @@ public class Compare extends GBDialog {
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == undergradButton) {
-			gradeCombo.setEditable(true);
-			majorField.setEditable(false);
+			gradeCombo.setVisible(true);
+			majorField.setVisible(false);
 			
 			type = 'u';
 		}
 		
 		if (buttonObj == gradButton) {
-			gradeCombo.setEditable(false);
-			majorField.setEditable(true);
+			gradeCombo.setVisible(false);
+			majorField.setVisible(true);
 			
 			type = 'g';
+			
+			majorField.setText("");
 		}
 		
 		if (buttonObj == compareButton) {
