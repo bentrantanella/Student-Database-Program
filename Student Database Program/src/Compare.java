@@ -54,6 +54,8 @@ public class Compare extends GBDialog {
 			majorField.setVisible(false);
 			majorLabel.setVisible(false);
 			
+			nameField.setText("");
+			
 			type = 'u';
 		}
 		
@@ -65,6 +67,7 @@ public class Compare extends GBDialog {
 			
 			type = 'g';
 			
+			nameField.setText("");
 			majorField.setText("");
 		}
 		
