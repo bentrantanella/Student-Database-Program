@@ -189,6 +189,11 @@ public class InputField extends GBDialog {
 
 			}
 			
+			if (DatabaseGUI.counter == 10) {
+				messageBox("Max number of people reached: 10");
+				dispose();
+			}
+			
 		}
 	}
 	

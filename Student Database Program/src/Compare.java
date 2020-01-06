@@ -50,14 +50,18 @@ public class Compare extends GBDialog {
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == undergradButton) {
 			gradeCombo.setVisible(true);
+			gradeLabel.setVisible(true);
 			majorField.setVisible(false);
+			majorLabel.setVisible(false);
 			
 			type = 'u';
 		}
 		
 		if (buttonObj == gradButton) {
 			gradeCombo.setVisible(false);
+			gradeLabel.setVisible(false);
 			majorField.setVisible(true);
+			majorLabel.setVisible(true);
 			
 			type = 'g';
 			

@@ -15,6 +15,9 @@ public class Print {
 				output += p[i].print();
 		}
 		
+		if (output.contentEquals(""))
+			output = "There are no students";
+		
 		return output;
 	}
 	
@@ -23,6 +26,9 @@ public class Print {
 			if(p[i] instanceof Person)
 				output += p[i].print();
 		}
+		
+		if (output.contentEquals(""))
+			output = "There are no people";
 		
 		return output;
 	}
@@ -33,6 +39,9 @@ public class Print {
 				output += p[i].print();
 		}
 		
+		if (output.contentEquals(""))
+			output = "There are no undergrads";
+		
 		return output;
 	}
 	
@@ -41,6 +50,9 @@ public class Print {
 			if(p[i] instanceof Graduate)
 				output += p[i].print();
 		}
+		
+		if (output.contentEquals(""))
+			output = "There are no graduates";
 		
 		return output;
 	}

@@ -24,6 +24,9 @@ public class DatabaseGUI extends GBFrame {
 		if (buttonObj == newPersonButton) {
 			InputField newperson = new InputField(this, people);
 			newperson.setVisible(true);
+			
+			if (counter == 10)
+				newPersonButton.setEnabled(false);
 		}
 		
 		if (buttonObj == printPeopleButton) {
