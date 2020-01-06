@@ -66,6 +66,12 @@ public class Compare extends GBDialog {
 		
 		if (buttonObj == compareButton) {
 			
+			String name = nameField.getText();
+			if (name.isEmpty() || isWhitespace(name)) {
+				messageBox("Enter a name");
+				return;
+			}
+			
 			if (type == 'u') {
 				String output = "Undergraduates with the same grade: " + "\n";
 				String grade = (String) gradeCombo.getSelectedItem();
@@ -86,6 +92,11 @@ public class Compare extends GBDialog {
 				String output = "Graduates with the same major: " + "\n";
 				String major = majorField.getText();
 				
+				if (major.isEmpty() || isWhitespace(major)) {
+					messageBox("Enter a major");
+					return;
+				}
+				
 				for (Graduate g : grads) {
 					if(g instanceof Graduate) {
 						if (g.Equals(major)) {
@@ -98,6 +109,14 @@ public class Compare extends GBDialog {
 				messageBox(output);
 			}
 		}
+	}
+	
+	public boolean isWhitespace(String s) {
+		for(int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != ' ')
+				return false;
+		}
+		return true;
 	}
 
 }

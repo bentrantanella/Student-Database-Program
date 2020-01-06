@@ -120,26 +120,25 @@ public class InputField extends GBDialog {
 				
 				data[DatabaseGUI.counter] = new Person(name);
 				DatabaseGUI.counter++;
-				System.out.println(DatabaseGUI.counter);
 				messageBox("You have added a person named " + nameField.getText());
 				
 			} else if (inputtype == 's') {
 				String name = nameField.getText();
-				int id;
+				
 				
 				if (name.isEmpty() || isWhitespace(name)) {
 					messageBox("Please enter a name");
 					return;
 				}
 				
-				try {
-					id = idField.getNumber();
-				} catch (Exception e) {
+				if (!idField.isValidNumber()) {
 					messageBox("Invalid id number");
 					return;
 				}
 				
-				data[DatabaseGUI.counter] = new Student(nameField.getText(), id);
+				int id = idField.getNumber();
+				
+				data[DatabaseGUI.counter] = new Student(name, id);
 				DatabaseGUI.counter++;
 				messageBox("You have added a student named " + nameField.getText());
 				
@@ -152,13 +151,12 @@ public class InputField extends GBDialog {
 					return;
 				}
 				
-				int id = 0;
-				try {
-					id = idField.getNumber();
-				} catch (Exception e) {
+				if (!idField.isValidNumber()) {
 					messageBox("Invalid id number");
 					return;
 				}
+				
+				int id = idField.getNumber();
 				
 				data[DatabaseGUI.counter] = new Undergraduate(name, id, grade);
 				DatabaseGUI.counter++;
@@ -167,7 +165,7 @@ public class InputField extends GBDialog {
 			} else if (inputtype == 'g') {
 				String name = nameField.getText();
 				String major = majorField.getText();
-				int id = 0;
+				
 				if (name.isEmpty() || isWhitespace(name)) {
 					messageBox("Please enter a name");
 					return;
@@ -178,12 +176,12 @@ public class InputField extends GBDialog {
 					return;
 				}
 				
-				try {
-					id = idField.getNumber();
-				} catch (Exception e) {
+				if (!idField.isValidNumber()) {
 					messageBox("Invalid id number");
 					return;
 				}
+				
+				int id = idField.getNumber();
 				
 				data[DatabaseGUI.counter] = new Graduate(name, id, major);
 				DatabaseGUI.counter++;
